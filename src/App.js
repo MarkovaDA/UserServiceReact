@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserList  from './components/UserList';
+import Popup from './components/Popup';
 
 import 'semantic-ui-css/semantic.min.css';
 import 'semantic-ui-css/semantic.min'
@@ -27,6 +28,7 @@ class App extends Component {
         <div className= "ui segment">
           <UserList />
         </div>
+        <Popup />
       </div>
     );
   }
