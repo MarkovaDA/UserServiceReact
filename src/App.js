@@ -25,21 +25,16 @@ class App extends Component {
         <div className= "ui segment">
           <UserList />
         </div>
-        <Popup info = 'информация пока не получена' />
+        <Popup infoToDisplay = {JSON.stringify(this.props.info)} />
       </div>
     );
-  }
-
-  componentWillUpdate(newProps) {
-    console.log('App, state:', newProps.itemInfo);
   }
 }
 
 export default connect(
   state => ({
-    itemInfo: state
+    //получаем описание юзера для отображения в popup
+    info: state.issue
   }),
-  dispatch => ({
-
-  })
+  dispatch => ({})
 )(App);

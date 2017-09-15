@@ -4,6 +4,6 @@ import { callPopupSubscribe } from './callPopupReducer';
 
 export default combineReducers({
   item: itemClickSubscribe,
-  fields: callPopupSubscribe
+  issue: callPopupSubscribe
 });
 

@@ -3,7 +3,7 @@ export const callPopupSubscribe = (state = {}, action) => {
     case 'CALL_POPUP':
       return {
         ...state,
-        fields: action.info
+        fields: action.userInfo
       };
     default:
       return state;

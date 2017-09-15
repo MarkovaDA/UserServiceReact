@@ -4,17 +4,17 @@ import $ from 'jquery/dist/jquery.min';
 
 class Popup extends React.Component {
 
-  render() {
 
+  render() {
     return (
       <div className ="ui modal" >
         <i className = "close icon" onClick={this.closeModal}></i>
         <div className = "header">
-          Информация о пользователе {this.props.info.id}
+          Информация о пользователе
         </div>
         <div className = "content">
           <div className ="description">
-            Описание
+            Описание {this.props.infoToDisplay}
           </div>
         </div>
         <div className = "actions">
@@ -25,7 +25,7 @@ class Popup extends React.Component {
   }
 
   componentWillUpdate() {
-    //this.showModal();
+    this.showModal();
   }
 
   updateView() {

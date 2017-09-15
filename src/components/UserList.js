@@ -27,11 +27,9 @@ class UserList extends React.Component {
   }
 
   componentWillUpdate(newProps) {
-    console.log('UsersList, state:', newProps.clickedItemInfo);
-    //dispatch to apps
-    this.props.loadItemDescription("smth description");
-      //const userId = newProps.clickedItemInfo.id;
-      //this.getUserById(userId);
+    //получаем дополнительную информацию о пользователе
+    const userId = newProps.clickedItem.id;
+    this.getUserById(userId);
   }
 
   //получаем список пользователей
@@ -59,16 +57,20 @@ class UserList extends React.Component {
       });
     ;
   }
+  //конфертация описания пользователя в строку
+  formatUserIssue() {
+
+  }
 }
 
 export default connect(
   state => ({
-    clickedItemInfo: state
+    clickedItem: state.item
   }),
   dispatch => ({
-    loadItemDescription: (itemInfo) => {
-      //dispatch(CallPopupAction(itemInfo));
-      //dispatch({type: 'CALL_POPUP', data: itemInfo});
+    loadItemDescription: (info) => {
+      //console.log(CallPopupAction(info));
+      dispatch(CallPopupAction(info));
     }
   })
 )(UserList);

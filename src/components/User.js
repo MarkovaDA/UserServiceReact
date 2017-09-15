@@ -30,6 +30,7 @@ export default connect (
 
   dispatch => ({
     onItemClick: (id) => {
+      //оповещаем UserList о клике на дочернем компоненте
       dispatch(ItemClickAction(id));
     }
   })
