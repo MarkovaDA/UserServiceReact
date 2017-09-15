@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 import UserList  from './components/UserList';
 import Popup from './components/Popup';
+import { connect } from 'react-redux';
 
 import 'semantic-ui-css/semantic.min.css';
-import 'semantic-ui-css/semantic.min'
-
+import 'semantic-ui-css/semantic.min';
+import './style.css';
 
 class App extends Component {
 
   render() {
-    const segmentStyle = {
-      'marginTop': '50px',
-      'width': '60%'
-    }
     return (
-      <div className = "ui center container" style = {segmentStyle}>
-        <div className ="ui secondary pointing menu">
+      <div className = "ui center container" >
+        <div className = "ui secondary pointing menu">
           <a className = "active yellow item">
             Пользователи
           </a>
@@ -28,10 +25,21 @@ class App extends Component {
         <div className= "ui segment">
           <UserList />
         </div>
-        <Popup />
+        <Popup info = 'информация пока не получена' />
       </div>
     );
   }
+
+  /*componentWillUpdate(newProps) {
+    console.log('Component WILL UPDATE!', newProps.text);
+  }*/
 }
 
-export default App;
+export default connect(
+  state => ({
+
+  }),
+  dispatch => ({
+
+  })
+)(App);

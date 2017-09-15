@@ -1,34 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import $ from 'jquery/dist/jquery.min';
 
+
 class Popup extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
-    const popupStyle = {
-      'top':'30%'
-    };
+
     return (
-      <div>
-        <button className ="ui yellow button" onClick={this.showModal}>show modal</button>
-          <div className ="ui modal" style = {popupStyle} >
-            <i className = "close icon"></i>
-            <div className = "header">
-              Информация о пользователе
-            </div>
-            <div className = "content">
-              <div className ="description">
-                Описание
-              </div>
-            </div>
-            <div className = "actions">
-              <div className = "ui button" onClick={this.closeModal}>OK</div>
-            </div>
+      <div className ="ui modal" >
+        <i className = "close icon" onClick={this.closeModal}></i>
+        <div className = "header">
+          Информация о пользователе {this.props.info.id}
+        </div>
+        <div className = "content">
+          <div className ="description">
+            Описание
+          </div>
+        </div>
+        <div className = "actions">
+          <div className = "ui button" onClick={this.closeModal}>OK</div>
         </div>
       </div>
     );
+  }
+
+  componentWillUpdate() {
+    //this.showModal();
   }
 
   showModal() {

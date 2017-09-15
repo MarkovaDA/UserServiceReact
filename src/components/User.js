@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { ItemClickAction } from '../actions/action';
+
 
 class User extends React.Component {
-  constructor(props){
-    super(props);
-  }
 
   render() {
     const imgSrc = require('../images/user_icon.png');
 
     return (
-      <div className = "ui middle aligned large divided animated selection list">
+      <div className = "ui middle aligned large divided animated selection list"
+           onClick={this.showItemDescription.bind(this)}>
         <div className = "item">
-          <img className = "ui avatar image" src={imgSrc} />
+          <img className = "ui avatar image" src={imgSrc} alt="user specified icon"/>
           <div className = "content">
             <a className = "description">{this.props.user.firstname} {this.props.user.lastname}</a>
           </div>
@@ -19,5 +20,17 @@ class User extends React.Component {
       </div>
     );
   }
+
+  showItemDescription() {
+    this.props.onItemClick(this.props.user.id);
+  }
 }
-export default User;
+export default connect (
+  state => ({}),
+
+  dispatch => ({
+    onItemClick: (id) => {
+      dispatch(ItemClickAction(id));
+    }
+  })
+)(User);
