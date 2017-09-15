@@ -1,10 +1,12 @@
-export const itemClickSubscribe = (state = {info:{id:1}}, action) => {
+export const itemClickSubscribe = (state = {id:1}, action) => {
+
   switch(action.type) {
     case 'CLICK_ITEM':
       return {
-        info: {id: action.id }
+        ...state,
+        id: action.id
       };
     default:
       return state;
   }
-}
+};

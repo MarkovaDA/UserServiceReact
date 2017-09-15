@@ -30,14 +30,14 @@ class App extends Component {
     );
   }
 
-  /*componentWillUpdate(newProps) {
-    console.log('Component WILL UPDATE!', newProps.text);
-  }*/
+  componentWillUpdate(newProps) {
+    console.log('App, state:', newProps.itemInfo);
+  }
 }
 
 export default connect(
   state => ({
-
+    itemInfo: state
   }),
   dispatch => ({
 

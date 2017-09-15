@@ -1,8 +1,9 @@
-export const callPopupSubscribe = (state = {data:{info:[]}}, action) => {
+export const callPopupSubscribe = (state = {}, action) => {
   switch(action.type) {
     case 'CALL_POPUP':
       return {
-        data: {info: action.info }
+        ...state,
+        fields: action.info
       };
     default:
       return state;

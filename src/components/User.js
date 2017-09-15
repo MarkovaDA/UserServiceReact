@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ItemClickAction } from '../actions/action';
+import { ItemClickAction } from '../actions/ItemClickAction';
 
 
 class User extends React.Component {

@@ -28,6 +28,10 @@ class Popup extends React.Component {
     //this.showModal();
   }
 
+  updateView() {
+
+  }
+
   showModal() {
     $('.ui.modal').fadeIn(300);
   }

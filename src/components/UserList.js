@@ -1,7 +1,7 @@
 import React from 'react';
 import User from './User';
 import { connect } from 'react-redux';
-import { CallPopupAction } from "../actions/action"
+import { CallPopupAction } from "../actions/CallPopupAction"
 
 class UserList extends React.Component {
   constructor(props) {
@@ -27,8 +27,11 @@ class UserList extends React.Component {
   }
 
   componentWillUpdate(newProps) {
-      const userId = newProps.clickedItemInfo.id;
-      this.getUserById(userId);
+    console.log('UsersList, state:', newProps.clickedItemInfo);
+    //dispatch to apps
+    this.props.loadItemDescription("smth description");
+      //const userId = newProps.clickedItemInfo.id;
+      //this.getUserById(userId);
   }
 
   //получаем список пользователей
@@ -60,11 +63,10 @@ class UserList extends React.Component {
 
 export default connect(
   state => ({
-    clickedItemInfo: state.info
+    clickedItemInfo: state
   }),
   dispatch => ({
     loadItemDescription: (itemInfo) => {
-      console.log('dispatch', itemInfo);
       //dispatch(CallPopupAction(itemInfo));
       //dispatch({type: 'CALL_POPUP', data: itemInfo});
     }
