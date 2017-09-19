@@ -8,7 +8,9 @@ import 'semantic-ui-css/semantic.min';
 import './style.css';
 
 class App extends Component {
-
+  constructor() {
+    super();
+  }
   render() {
     return (
       <div className = "ui center container" >
@@ -25,7 +27,7 @@ class App extends Component {
         <div className= "ui segment">
           <UserList />
         </div>
-        <Popup infoToDisplay = {JSON.stringify(this.props.info)} />
+        <Popup displayInfo = {JSON.stringify(this.props.info)} />
       </div>
     );
   }

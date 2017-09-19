@@ -2,6 +2,8 @@ import React from 'react';
 import User from './User';
 import { connect } from 'react-redux';
 import { CallPopupAction } from "../actions/CallPopupAction"
+import find from 'lodash/find';
+import omit from 'lodash/omit';
 
 class UserList extends React.Component {
   constructor(props) {
@@ -27,7 +29,6 @@ class UserList extends React.Component {
   }
 
   componentWillUpdate(newProps) {
-    //получаем дополнительную информацию о пользователе
     const userId = newProps.clickedItem.id;
     this.getUserById(userId);
   }
@@ -49,17 +50,13 @@ class UserList extends React.Component {
     fetch('/server/description.json')
       .then((response) => response.json())
       .then((responseJson) => {
-        const itemInfo = responseJson.filter((item) => item.id === id)[0];
+        const itemInfo = omit(find(responseJson, {'id':id}), 'id');
         this.props.loadItemDescription(itemInfo);
       })
       .catch((error) => {
         console.error(error);
       });
     ;
-  }
-  //конфертация описания пользователя в строку
-  formatUserIssue() {
-
   }
 }
 
@@ -69,7 +66,6 @@ export default connect(
   }),
   dispatch => ({
     loadItemDescription: (info) => {
-      //console.log(CallPopupAction(info));
       dispatch(CallPopupAction(info));
     }
   })
