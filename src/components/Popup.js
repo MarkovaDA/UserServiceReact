@@ -2,14 +2,17 @@ import React from 'react';
 import $ from 'jquery/dist/jquery.min';
 import isEmpty from 'lodash/isEmpty';
 import keys from 'lodash/keys';
+import { connect } from 'react-redux';
 
 class Popup extends React.Component {
 
   render() {
-    const data = JSON.parse(this.props.displayInfo).fields;
 
-    if (isEmpty(data))
-        return null;
+    const data = this.props.info.fields;
+
+    if (isEmpty(data)) {
+      return null;
+    }
 
     return (
       <div className ="ui modal" >
@@ -23,7 +26,7 @@ class Popup extends React.Component {
               <thbody>
               {
                 keys(data).map(key =>
-                  <tr key={key}>
+                  <tr key = {key} >
                     <td><b>{key}:</b></td>
                     <td>{data[key]}</td>
                   </tr>)
@@ -52,4 +55,10 @@ class Popup extends React.Component {
     $('.ui.modal').fadeOut(200);
   }
 }
-export default Popup;
+export default connect(
+  state => ({
+    //получаем описание юзера для отображения в popup
+    info: state.issue
+  }),
+  dispatch => ({})
+)(Popup);

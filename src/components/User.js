@@ -11,10 +11,13 @@ class User extends React.Component {
     return (
       <div className = "ui middle aligned large divided animated selection list"
            onClick={this.showItemDescription.bind(this)}>
+
         <div className = "item">
           <img className = "ui avatar image" src={imgSrc} alt="user specified icon"/>
           <div className = "content">
-            <a className = "description">{this.props.user.firstname} {this.props.user.lastname}</a>
+            <a className = "description">
+              {this.props.user.firstname} {this.props.user.lastname}
+            </a>
           </div>
         </div>
       </div>
@@ -25,12 +28,13 @@ class User extends React.Component {
     this.props.onItemClick(this.props.user.id);
   }
 }
+
 export default connect (
   state => ({}),
 
   dispatch => ({
     onItemClick: (id) => {
-      //оповещаем UserList о клике на дочернем компоненте
+      //оповещаем UserList о клике на дочернем компоненте User
       dispatch(ItemClickAction(id));
     }
   })

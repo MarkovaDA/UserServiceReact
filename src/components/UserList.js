@@ -13,7 +13,9 @@ class UserList extends React.Component {
       'items': []
     };
   }
+
   componentDidMount() {
+    //загружаем пользователей, подлежащих отображению
     this.getUsers();
   }
 
@@ -50,7 +52,9 @@ class UserList extends React.Component {
     fetch('/server/description.json')
       .then((response) => response.json())
       .then((responseJson) => {
+        //за исключением поля id, оно отображению не подлежит
         const itemInfo = omit(find(responseJson, {'id':id}), 'id');
+        //оповещаем App о выбранном компоненте
         this.props.loadItemDescription(itemInfo);
       })
       .catch((error) => {
@@ -64,6 +68,7 @@ export default connect(
   state => ({
     clickedItem: state.item
   }),
+
   dispatch => ({
     loadItemDescription: (info) => {
       dispatch(CallPopupAction(info));
