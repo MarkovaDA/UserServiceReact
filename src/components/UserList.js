@@ -47,13 +47,14 @@ class UserList extends React.Component {
       });
     ;
   }
+
   //получаем информацию о пользователе по id
   getUserById(id) {
     fetch('/server/description.json')
       .then((response) => response.json())
       .then((responseJson) => {
         //за исключением поля id, оно отображению не подлежит
-        const itemInfo = omit(find(responseJson, {'id':id}), 'id');
+        const itemInfo = omit(find(responseJson, {'id': id}), 'id');
         //оповещаем App о выбранном компоненте
         this.props.loadItemDescription(itemInfo);
       })

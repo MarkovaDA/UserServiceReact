@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import UserList  from './components/UserList';
-import Popup from './components/Popup';
-
+import FancyBox from './components/FancyBox';
 import 'semantic-ui-css/semantic.min.css';
 import 'semantic-ui-css/semantic.min';
 import './style.css';
 
 class App extends Component {
-  constructor() {
-    super();
-  }
 
   render() {
 
@@ -23,7 +19,7 @@ class App extends Component {
         <div className= "ui segment">
           <UserList />
         </div>
-        <Popup  />
+        <FancyBox />
       </div>
     );
   }

@@ -6,3 +6,12 @@
 .ui.modal {
   top: 30%;
 }
+.row-info-user {
+  display: flex;
+}
+.row-key {
+  width: 20%;
+}
+.row-value {
+  width: 80%;
+}
