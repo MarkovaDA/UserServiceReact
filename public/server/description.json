@@ -1,7 +1,7 @@
 [
-  {"id":1,  "position": "front-end разработчик", "mail":"sergey.sharapov@gmail.com"},
-  {"id":2,  "position": "java-программист", "mail":"jury.anisimov@mail.ru"},
-  {"id":3,  "position": "менеджер", "mail":"pavel.nikonov@yandex.ru"},
-  {"id":4,  "position": "front-end разработчик", "mail":"bogdan.shashkov@gmail.com"},
-  {"id":5,  "position": "android-разработчик", "mail":"igory.osipov@bk.ru"}
+  {"id":1,  "data": {"position": "front-end разработчик", "mail":"sergey.sharapov@gmail.com"}},
+  {"id":2,  "data": {"position": "java-программист", "mail":"jury.anisimov@mail.ru"}},
+  {"id":3,  "data": {"position": "менеджер", "mail":"pavel.nikonov@yandex.ru"}},
+  {"id":4,  "data": {"position": "front-end разработчик", "mail":"bogdan.shashkov@gmail.com"}},
+  {"id":5,  "data": {"position": "android-разработчик", "mail":"igory.osipov@bk.ru"}}
 ]

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import UserList  from './components/UserList';
-import FancyBox from './components/FancyBox';
 import 'semantic-ui-css/semantic.min.css';
 import 'semantic-ui-css/semantic.min';
 import './style.css';
@@ -8,7 +7,6 @@ import './style.css';
 class App extends Component {
 
   render() {
-
     return (
       <div className = "ui center container" >
         <div className = "ui secondary pointing menu">
@@ -19,7 +17,6 @@ class App extends Component {
         <div className= "ui segment">
           <UserList />
         </div>
-        <FancyBox />
       </div>
     );
   }

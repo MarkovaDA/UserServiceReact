@@ -10,7 +10,7 @@ class User extends React.Component {
 
     return (
       <div className = "ui middle aligned large divided animated selection list"
-           onClick={this.showItemDescription.bind(this)}>
+           onClick={this.props.onClick}>
 
         <div className = "item">
           <img className = "ui avatar image" src={imgSrc} alt="user specified icon"/>
