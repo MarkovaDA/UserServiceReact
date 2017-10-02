@@ -2,27 +2,35 @@ import React, { Component } from 'react';
 import User from './User';
 import FancyBox from './FancyBox';
 import { connect } from 'react-redux';
-import { CallPopupAction } from "../actions/CallPopupAction"
+import { LoadDataAction } from "../actions/LoadDataAction";
 import find from 'lodash/find';
 import omit from 'lodash/omit';
 
 class UserList extends Component {
   state = {
-      items: [],//список всех пользователей
       selectedItem: null
   };
 
   componentDidMount() {
-    //загружаем пользователей, подлежащих отображению
-    this.getUsers();
+    this.props.loadData();
+  }
+
+  componentWillReceiveProps(props) {
+    console.log('состояние хранилища', props.storage);
   }
 
   render() {
-    return (
+    if (!this.props.items)
+      return (
+        <div>
+          <p>Ошибка загрузки данных</p>
+        </div>
+      );
+    else return (
       <div>
         <div className = "user-container">
           {
-            this.state.items.map((item, index) => <User onClick={() => this.onClick(item.id)} user={item} key={index} />)
+            this.props.items.map((item, index) => <User onClick={() => this.onClick(item.id)} user={item} key={index} />)
           }
         </div>
         <FancyBox userInfo = {this.state.selectedItem}/>
@@ -34,19 +42,6 @@ class UserList extends Component {
     this.getUserById(userId);
   }
 
-  //получаем список пользователей
-  getUsers() { // Вынести в action
-    fetch('/server/users.json')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({items: responseJson});
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    ;
-  }
-
   //получаем информацию о пользователе по id
   getUserById(id) {
     fetch('/server/description.json')
@@ -54,7 +49,6 @@ class UserList extends Component {
       .then((responseJson) => {
         const itemInfo = omit(find(responseJson, {'id': id}), 'id');
         this.setState({selectedItem: itemInfo});
-        //this.props.loadItemDescription(itemInfo);
       })
       .catch((error) => {
         console.error(error);
@@ -64,12 +58,25 @@ class UserList extends Component {
 
 export default connect(
   state => ({
-    clickedItem: state.item
+    storage: state,
+    items: state.data.items,
   }),
-
   dispatch => ({
-    loadItemDescription: (info) => {
-      dispatch(CallPopupAction(info));
+    //загружаем пользователей с сервера
+    loadData: () => {
+      dispatch(LoadDataAction());
     }
   })
 )(UserList);
+
+/*return {
+  ...state,
+  items: [
+    {"id":1, "firstname": "Сергей", "lastname": "Шарапов"},
+    {"id":2, "firstname": "Юрий", "lastname": "Анисимов"},
+    {"id":3, "firstname": "Павел", "lastname": "Никонов"},
+    {"id":4, "firstname": "Богдан", "lastname": "Шашков"},
+    {"id":5, "firstname": "Игорь", "lastname": "Осипов"},
+    {"id":6, "firstname": "Дарья", "lastname": "Маркова"}
+  ]
+};*/

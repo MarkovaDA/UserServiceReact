@@ -20,7 +20,7 @@ class FancyBox extends React.Component {
     const { data } = {...this.props.userInfo};
 
     return (
-      <Modal closeIcon={true} open={this.state.isOpen} onClose={this.close} closeOnDocumentClick={true}>
+      <Modal closeIcon={true} open={this.state.isOpen} onClose={this.onClose} closeOnDocumentClick={true}>
         <Modal.Header>Информация о пользователе</Modal.Header>
           <Modal.Content>
             <Modal.Description>
@@ -44,7 +44,7 @@ class FancyBox extends React.Component {
     )
   }
 
-  close = () => {
+  onClose = () => {
     this.setState({
         isOpen: false
     });

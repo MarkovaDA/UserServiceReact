@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { ItemClickAction } from '../actions/ItemClickAction';
 
 
 class User extends React.Component {
@@ -23,19 +21,6 @@ class User extends React.Component {
       </div>
     );
   }
-
-  showItemDescription() {
-    this.props.onItemClick(this.props.user.id);
-  }
 }
 
-export default connect (
-  state => ({}),
-
-  dispatch => ({
-    onItemClick: (id) => {
-      //оповещаем UserList о клике на дочернем компоненте User
-      dispatch(ItemClickAction(id));
-    }
-  })
-)(User);
+export default User;
