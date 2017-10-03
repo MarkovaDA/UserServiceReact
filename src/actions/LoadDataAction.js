@@ -3,7 +3,7 @@ import find from 'lodash/find';
 import omit from 'lodash/omit';
 
 export const loadUserInfoByIdAction = (id) => {
-  return (dispatch) =>  {
+  return (dispatch) => {
     return {
       type: 'USER_BY_ID_REQUEST',
       result:
@@ -19,7 +19,7 @@ export const loadUserInfoByIdAction = (id) => {
 };
 
 export const loadUsersDataAction = () => {
-  return (dispatch) =>  {
+  return (dispatch) => {
     return {
       type: 'USERS_DATA_REQUEST',
       result:

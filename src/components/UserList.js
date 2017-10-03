@@ -2,31 +2,32 @@ import React, { Component } from 'react';
 import User from './User';
 import FancyBox from './FancyBox';
 import { connect } from 'react-redux';
-import { loadUsersDataAction} from "../actions/LoadDataAction";
+import { loadUsersDataAction } from "../actions/LoadDataAction";
 import { loadUserInfoByIdAction } from "../actions/LoadDataAction";
 import PropTypes from 'prop-types';
 
 class UserList extends Component {
-
   componentDidMount() {
     this.props.loadData();
   }
 
   render() {
-    if (!this.props.items)
+    if (!this.props.items) {
       return (
         <div>
           <p>Ошибка загрузки данных</p>
         </div>
       );
-    else return (
+    }
+
+    return (
       <div>
-        <div className = "user-container">
+        <div className="user-container">
           {
             this.props.items.map((item, index) => <User onClick={() => this.onClick(item.id)} user={item} key={index} />)
           }
         </div>
-        <FancyBox userInfo = {this.props.userInfo} />
+        <FancyBox userInfo={this.props.userInfo} />
       </div>
     );
   }
@@ -35,6 +36,11 @@ class UserList extends Component {
     this.props.getUserById(userId);
   }
 }
+
+UserList.propTypes = {
+  userInfo: PropTypes.object,
+  items: PropTypes.array
+};
 
 export default connect(
   state => ({
@@ -50,8 +56,3 @@ export default connect(
     }
   })
 )(UserList);
-
-UserList.propTypes = {
-  userInfo: PropTypes.object,
-  items: PropTypes.array
-};

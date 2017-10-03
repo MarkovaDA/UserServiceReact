@@ -5,14 +5,20 @@ import PropTypes from 'prop-types';
 class FancyBox extends React.Component {
 
   state = {
-    isOpen: false//список всех пользователей
+    isOpen: false
   };
 
   componentWillReceiveProps(props) {
     this.setState({
       isOpen: !!props.userInfo
-    });
+    })
   }
+
+  onClose = () => {
+    this.setState({
+      isOpen: false
+    })
+  };
 
   render() {
     const { data } = {...this.props.userInfo};
@@ -24,13 +30,13 @@ class FancyBox extends React.Component {
             <Modal.Description>
               {
                 data && Object.keys(data).map(key =>
-                  <div key={key} className = "row-info-user">
-                    <div className = "row-key">
+                  <div key={key} className="row-info-user">
+                    <div className="row-key">
                       <b>
                         {key}:
                       </b>
                     </div>
-                    <div className = "row-value">
+                    <div className="row-value">
                       {data[key]}
                     </div>
                   </div>
@@ -41,13 +47,8 @@ class FancyBox extends React.Component {
      </Modal>
     )
   }
-
-  onClose = () => {
-    this.setState({
-        isOpen: false
-    });
-  };
 }
+
 export default FancyBox;
 
 FancyBox.propTypes = {
