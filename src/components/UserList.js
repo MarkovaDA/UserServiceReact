@@ -2,24 +2,14 @@ import React, { Component } from 'react';
 import User from './User';
 import FancyBox from './FancyBox';
 import { connect } from 'react-redux';
-
 import { loadUsersDataAction} from "../actions/LoadDataAction";
 import { loadUserInfoByIdAction } from "../actions/LoadDataAction";
-
-import find from 'lodash/find';
-import omit from 'lodash/omit';
+import PropTypes from 'prop-types';
 
 class UserList extends Component {
-  state = {
-      selectedItem: null
-  };
 
   componentDidMount() {
     this.props.loadData();
-  }
-
-  componentWillReceiveProps(props) {
-    console.log('состояние хранилища', props.storage);
   }
 
   render() {
@@ -42,31 +32,17 @@ class UserList extends Component {
   }
 
   onClick(userId) {
-    //this.getUserById();
     this.props.getUserById(userId);
   }
 
-  //получаем информацию о пользователе по id
-  getUserById(id) {
-    fetch('/server/description.json')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        const itemInfo = omit(find(responseJson, {'id': id}), 'id');
-        this.setState({selectedItem: itemInfo});
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
 }
 
 export default connect(
   state => ({
-    storage: state,
     items: state.data.items,
+    userInfo: state.data.userInfo
   }),
   dispatch => ({
-    //загружаем пользователей с сервера
     loadData: () => {
       dispatch(loadUsersDataAction());
     },
@@ -75,3 +51,8 @@ export default connect(
     }
   })
 )(UserList);
+
+UserList.propTypes = {
+  userInfo: PropTypes.object,
+  items: PropTypes.array
+};

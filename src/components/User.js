@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 class User extends React.Component {
 
@@ -22,5 +22,11 @@ class User extends React.Component {
     );
   }
 }
-
 export default User;
+
+User.propTypes = {
+  user: PropTypes.shape({
+    firstname:PropTypes.string,
+    lastname:PropTypes.string
+  })
+};

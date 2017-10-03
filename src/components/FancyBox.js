@@ -1,8 +1,6 @@
 import React from 'react';
 import { Modal } from 'semantic-ui-react';
-import keys from 'lodash/keys';
-
-
+import PropTypes from 'prop-types';
 
 class FancyBox extends React.Component {
 
@@ -25,7 +23,7 @@ class FancyBox extends React.Component {
           <Modal.Content>
             <Modal.Description>
               {
-                keys(data).map(key =>
+                data && Object.keys(data).map(key =>
                   <div key={key} className = "row-info-user">
                     <div className = "row-key">
                       <b>
@@ -51,3 +49,7 @@ class FancyBox extends React.Component {
   };
 }
 export default FancyBox;
+
+FancyBox.propTypes = {
+  userInfo: PropTypes.object
+};
