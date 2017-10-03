@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import { loadDataSubscribe } from "./loadDataReducer";
+import { loadDataSubscribe } from "./LoadDataReducer";
+import { loadUserInfoSubscribe } from "./LoadUserInfoReducer";
 
 export default combineReducers({
-  data: loadDataSubscribe
+  usersData: loadDataSubscribe,
+  selectedUser: loadUserInfoSubscribe
 });
 

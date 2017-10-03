@@ -34,13 +34,12 @@ class UserList extends Component {
   onClick(userId) {
     this.props.getUserById(userId);
   }
-
 }
 
 export default connect(
   state => ({
-    items: state.data.items,
-    userInfo: state.data.userInfo
+    items: state.usersData.items,
+    userInfo: state.selectedUser.info
   }),
   dispatch => ({
     loadData: () => {
