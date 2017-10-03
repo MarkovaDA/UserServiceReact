@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import User from './User';
 import FancyBox from './FancyBox';
 import { connect } from 'react-redux';
-import { LoadDataAction } from "../actions/LoadDataAction";
+
+import { loadUsersDataAction} from "../actions/LoadDataAction";
+import { loadUserInfoByIdAction } from "../actions/LoadDataAction";
+
 import find from 'lodash/find';
 import omit from 'lodash/omit';
 
@@ -33,13 +36,14 @@ class UserList extends Component {
             this.props.items.map((item, index) => <User onClick={() => this.onClick(item.id)} user={item} key={index} />)
           }
         </div>
-        <FancyBox userInfo = {this.state.selectedItem}/>
+        <FancyBox userInfo = {this.props.userInfo} />
       </div>
     );
   }
 
   onClick(userId) {
-    this.getUserById(userId);
+    //this.getUserById();
+    this.props.getUserById(userId);
   }
 
   //получаем информацию о пользователе по id
@@ -64,19 +68,10 @@ export default connect(
   dispatch => ({
     //загружаем пользователей с сервера
     loadData: () => {
-      dispatch(LoadDataAction());
+      dispatch(loadUsersDataAction());
+    },
+    getUserById: (id) => {
+      dispatch(loadUserInfoByIdAction(id));
     }
   })
 )(UserList);
-
-/*return {
-  ...state,
-  items: [
-    {"id":1, "firstname": "Сергей", "lastname": "Шарапов"},
-    {"id":2, "firstname": "Юрий", "lastname": "Анисимов"},
-    {"id":3, "firstname": "Павел", "lastname": "Никонов"},
-    {"id":4, "firstname": "Богдан", "lastname": "Шашков"},
-    {"id":5, "firstname": "Игорь", "lastname": "Осипов"},
-    {"id":6, "firstname": "Дарья", "lastname": "Маркова"}
-  ]
-};*/
