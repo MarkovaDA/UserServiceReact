@@ -2,9 +2,6 @@ class DataLoadService {
   getUserDataRequest() {
      return fetch('/server/users.json');
   }
-  getUserById() {
-    return fetch('/server/description.json');
-  }
 
   getUserDataById(id) {
     return new Promise((resolve, reject) => {
