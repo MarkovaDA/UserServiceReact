@@ -1,8 +1,9 @@
 import React from 'react';
 import { Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import DataDisplayPattern from './DataDisplayPattern';
 
-class FancyBox extends React.Component {
+class UserDetailPopup extends React.Component {
 
   state = {
     isOpen: false
@@ -28,20 +29,7 @@ class FancyBox extends React.Component {
         <Modal.Header>Информация о пользователе</Modal.Header>
           <Modal.Content>
             <Modal.Description>
-              {
-                data && Object.keys(data).map(key =>
-                  <div key={key} className="row-info-user">
-                    <div className="row-key">
-                      <b>
-                        {key}:
-                      </b>
-                    </div>
-                    <div className="row-value">
-                      {data[key]}
-                    </div>
-                  </div>
-                )
-              }
+              <DataDisplayPattern displayData={data} />
             </Modal.Description>
       </Modal.Content>
      </Modal>
@@ -49,8 +37,8 @@ class FancyBox extends React.Component {
   }
 }
 
-export default FancyBox;
-
-FancyBox.propTypes = {
+UserDetailPopup.propTypes = {
   userInfo: PropTypes.object
 };
+
+export default UserDetailPopup;

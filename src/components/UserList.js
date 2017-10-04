@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import User from './User';
-import FancyBox from './FancyBox';
+import UserDetailPopup from './UserDetailPopup';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { loadUsersDataAction } from "../actions/LoadDataAction";
-import { loadUserInfoByIdAction } from "../actions/LoadDataAction";
+import * as userActions from "../actions/LoadDataAction";
+
 import PropTypes from 'prop-types';
 
 class UserList extends Component {
   componentDidMount() {
-    this.props.loadData();
+    this.props.userActions.loadUsersData();
   }
 
   render() {
     if (!this.props.items) {
       return (
         <div>
-          <p>Ошибка загрузки данных</p>
+          <p>Загрузка данных...</p>
         </div>
       );
     }
@@ -27,19 +28,20 @@ class UserList extends Component {
             this.props.items.map((item, index) => <User onClick={() => this.onClick(item.id)} user={item} key={index} />)
           }
         </div>
-        <FancyBox userInfo={this.props.userInfo} />
+        <UserDetailPopup userInfo={this.props.userInfo} />
       </div>
     );
   }
 
   onClick(userId) {
-    this.props.getUserById(userId);
+    this.props.userActions.loadUserInfoById(userId);
   }
 }
 
 UserList.propTypes = {
   userInfo: PropTypes.object,
-  items: PropTypes.array
+  items: PropTypes.array,
+  userActions: PropTypes.objectOf(PropTypes.func)
 };
 
 export default connect(
@@ -48,11 +50,12 @@ export default connect(
     userInfo: state.selectedUser.info
   }),
   dispatch => ({
-    loadData: () => {
-      dispatch(loadUsersDataAction());
+    userActions: bindActionCreators(userActions, dispatch)
+    /*loadData: () => {
+      dispatch(loadUsersData());
     },
     getUserById: (id) => {
-      dispatch(loadUserInfoByIdAction(id));
-    }
+      dispatch(loadUserInfoById(id));
+    }*/
   })
 )(UserList);

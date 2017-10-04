@@ -1,8 +1,9 @@
 import userService from "../service/DataLoadService";
+
 import find from 'lodash/find';
 import omit from 'lodash/omit';
 
-export const loadUserInfoByIdAction = (id) => {
+export const loadUserInfoById = (id) => {
   return (dispatch) => {
     return {
       type: 'USER_BY_ID_REQUEST',
@@ -18,7 +19,7 @@ export const loadUserInfoByIdAction = (id) => {
   }
 };
 
-export const loadUsersDataAction = () => {
+export const loadUsersData = () => {
   return (dispatch) => {
     return {
       type: 'USERS_DATA_REQUEST',
@@ -30,28 +31,28 @@ export const loadUsersDataAction = () => {
     }
   }
 };
-export const receiveUserInfoSuccess = (info) => {
+const receiveUserInfoSuccess = (info) => {
   return {
     type: 'USER_BY_ID_REQUEST_SUCCESS',
     userInfo: info
   };
 };
 
-export const receiveDataSuccess = (json) => {
+const receiveDataSuccess = (json) => {
   return {
     type: 'USERS_DATA_REQUEST_SUCCESS',
     results: json
   };
 };
 
-export const receiveUserInfoFailure = (error) => {
+const receiveUserInfoFailure = (error) => {
   return {
     type: 'USER_BY_ID_REQUEST_FAILURE',
     error: error
   };
 };
 
-export const receiveDataFailure = (error) => {
+const receiveDataFailure = (error) => {
   return {
     type: 'USERS_DATA_REQUEST_FAILURE',
     error: error
