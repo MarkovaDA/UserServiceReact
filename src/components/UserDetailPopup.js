@@ -22,7 +22,6 @@ class UserDetailPopup extends React.Component {
   };
 
   render() {
-    //const { data } = {...this.props.userInfo}; with redux
     const { data } = {...this.props.userDetail}
     return (
       <Modal closeIcon={true} open={this.state.isOpen} onClose={this.onClose} closeOnDocumentClick={true}>
