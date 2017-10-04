@@ -1,6 +1,6 @@
 class DataLoadService {
   getUserDataRequest() {
-     return fetch('/server/users.json');
+     return fetch('/server/users2.json');
   }
   getUserById() {
     return fetch('/server/description.json');

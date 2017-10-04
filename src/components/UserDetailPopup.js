@@ -11,7 +11,7 @@ class UserDetailPopup extends React.Component {
 
   componentWillReceiveProps(props) {
     this.setState({
-      isOpen: !!props.userInfo
+      isOpen: !!props.userDetail
     })
   }
 
@@ -22,8 +22,8 @@ class UserDetailPopup extends React.Component {
   };
 
   render() {
-    const { data } = {...this.props.userInfo};
-
+    //const { data } = {...this.props.userInfo}; with redux
+    const { data } = {...this.props.userDetail}
     return (
       <Modal closeIcon={true} open={this.state.isOpen} onClose={this.onClose} closeOnDocumentClick={true}>
         <Modal.Header>Информация о пользователе</Modal.Header>
@@ -38,7 +38,7 @@ class UserDetailPopup extends React.Component {
 }
 
 UserDetailPopup.propTypes = {
-  userInfo: PropTypes.object
+  userDetail: PropTypes.object
 };
 
 export default UserDetailPopup;
