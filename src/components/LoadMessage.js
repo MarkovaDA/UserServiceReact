@@ -6,7 +6,10 @@ class LoadMessage extends Component {
     return (
       <div>
         {
-           this.props.isLoading && <div className="ui orange message">Загрузка данных...</div>
+           this.props.isLoading &&
+           <div className="ui orange message">
+             Загрузка данных...
+           </div>
         }
       </div>
     );

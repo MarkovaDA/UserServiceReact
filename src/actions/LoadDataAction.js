@@ -1,24 +1,5 @@
 import userService from '../service/DataLoadService';
 
-import find from 'lodash/find';
-import omit from 'lodash/omit';
-
-export const loadUserInfoById = (id) => {
-  return (dispatch) => {
-    return {
-      type: 'USER_BY_ID_REQUEST',
-      result:
-        userService.getUserById()
-          .then(response => response.json())
-          .then(json => {
-            const info = omit(find(json, {'id': id}), 'id');
-            dispatch(receiveUserInfoSuccess(info))
-          })
-          .catch(error => dispatch(receiveUserInfoFailure(error)))
-    }
-  }
-};
-
 export const loadUsersData = () => {
   return (dispatch) => {
     return {
@@ -31,9 +12,45 @@ export const loadUsersData = () => {
     }
   }
 };
+
+export const loadUserDataIsNeed = (id) => {
+  return(dispatch, getState) => {
+    const foundUser = getState().selectedUser.userDetails.find(user => user.id === id);
+
+    if (foundUser) {
+      console.log('there is cashed data');
+      dispatch(extractCachedUserInfo(foundUser));
+      return;
+    }
+
+    return {
+      type: 'USER_DETAIL_REQUEST',
+      result: userService.getUserDataById(id)
+        .then((data) => {
+          dispatch(receiveUserInfoSuccess(data))
+        }, (error) => {
+          dispatch(receiveUserInfoFailure(error))
+        })
+    }
+  }
+};
+const extractCachedUserInfo = (info) => {
+  return {
+    type: 'USER_HAS_FOUND_IN_CACHE',
+    clickedUserInfo: info
+  }
+};
+
+const receiveUserInfoFailure = (error) => {
+  return {
+    type: 'USER_DETAIL_REQUEST_FAILURE',
+    error: error
+  };
+};
+//отправить user_has_found_in_cache
 const receiveUserInfoSuccess = (info) => {
   return {
-    type: 'USER_BY_ID_REQUEST_SUCCESS',
+    type: 'USER_DETAIL_REQUEST_SUCCESS',
     userInfo: info
   };
 };
@@ -42,13 +59,6 @@ const receiveDataSuccess = (json) => {
   return {
     type: 'USERS_DATA_REQUEST_SUCCESS',
     results: json
-  };
-};
-
-const receiveUserInfoFailure = (error) => {
-  return {
-    type: 'USER_BY_ID_REQUEST_FAILURE',
-    error: error
   };
 };
 

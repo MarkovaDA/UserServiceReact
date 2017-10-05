@@ -6,7 +6,10 @@ class ErrorMessage extends Component {
     return (
       <div>
         {
-          this.props.isError && <div className="ui negative message">Ошибка получения данных о пользователях</div>
+          this.props.isError &&
+          <div className="ui negative message">
+            Ошибка получения данных о пользователях
+          </div>
         }
       </div>
     );
