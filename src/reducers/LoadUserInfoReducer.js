@@ -9,7 +9,8 @@ export const loadUserInfoSubscribe = (state = {isFetching: false, userDetails: [
       const userInfo = action.userInfo;
       return {...state,
         isFetching:false,
-        userDetails:[...state.userDetails, userInfo]
+        userDetails:[...state.userDetails, userInfo],//список кешированных пользователей
+        clickedUserInfo: userInfo //описание пользователя, на котором кликнули
       };
     case 'USER_DETAIL_REQUEST_FAILURE':
       console.log('USER_DETAIL_REQUEST_FAILURE');
