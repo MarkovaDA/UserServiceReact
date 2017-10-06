@@ -1,23 +1,33 @@
+import groupSchema from '../schema/GroupsSchema';
+import { normalize } from 'normalizr';
 
 class DataLoadService {
   getUserDataRequest() {
-     return fetch('/server/groups.json');
+     return new Promise((resolve, reject) => {
+       fetch('/server/groups.json')
+         .then(response => response.json())
+         .then(json => {
+           const normalizedUsers = normalize(json, groupSchema).entities.users;
+           //console.log(Object.values(normalizedUsers));
+           resolve(Object.values(normalizedUsers));
+         })
+         .catch(error => reject(error))
+     });
   }
 
   getUserDataById(id) {
+    console.log('workplace', id);
+    //теперь id - это идентификатор workplace пользователя
     return new Promise((resolve, reject) => {
-      fetch('/server/description.json')
+      fetch('/server/groups.json')
         .then(response => response.json())
         .then(json => {
-          //имитация обработки на сервере:извлечение описание по id из json
-          const data = json.filter(item => item.id === id).shift();
+          const workplaces = normalize(json, groupSchema).entities.workplace;
+          const data = {data: Object.values(workplaces).find(item => {return item.id === id})};
           resolve(data);
         })
         .catch(error => reject(error))
     });
-  }
-  getGroupData() {
-    return fetch('/server/groups.json');
   }
 }
 

@@ -1,6 +1,5 @@
 import userService from '../service/DataLoadService';
-import groupSchema from '../schema/GroupsSchema';
-import { normalize } from 'normalizr';
+
 
 export const loadUsersData = () => {
   return (dispatch) => {
@@ -8,14 +7,9 @@ export const loadUsersData = () => {
       type: 'USERS_DATA_REQUEST',
       result:
         userService.getUserDataRequest()
-          .then(response => response.json())
-          .then(json => {
-            const normalizedUsers = normalize(json, groupSchema).entities.users;
-            console.log(normalize(json, groupSchema).entities);
-            dispatch(receiveDataSuccess(Object.values(normalizedUsers)));
-          })
-          .catch(error => {
-            console.log('catch', error);
+          .then((data) => {
+            dispatch(receiveDataSuccess(data))
+          }, (error) => {
             dispatch(receiveDataFailure(error))
           })
     }
