@@ -16,8 +16,6 @@ class DataLoadService {
   }
 
   getUserDataById(id) {
-    console.log('workplace', id);
-    //теперь id - это идентификатор workplace пользователя
     return new Promise((resolve, reject) => {
       fetch('/server/groups.json')
         .then(response => response.json())
@@ -25,6 +23,17 @@ class DataLoadService {
           const workplaces = normalize(json, groupSchema).entities.workplace;
           const data = {data: Object.values(workplaces).find(item => {return item.id === id})};
           resolve(data);
+        })
+        .catch(error => reject(error))
+    });
+  }
+
+  getTotalDescription() {
+    return new Promise((resolve, reject) => {
+      fetch('/server/description.json')
+        .then(response => response.json())
+        .then(json => {
+          resolve(json);
         })
         .catch(error => reject(error))
     });

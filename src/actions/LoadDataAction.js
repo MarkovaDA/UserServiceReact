@@ -37,6 +37,7 @@ export const loadUserDataIsNeed = (id) => {
     }
   }
 };
+
 const extractCachedUserInfo = (info) => {
   return {
     type: 'USER_HAS_FOUND_IN_CACHE',

@@ -1,7 +1,74 @@
-[
-  {"id":1,  "data": {"position": "front-end разработчик", "mail":"sergey.sharapov@gmail.com"}},
-  {"id":2,  "data": {"position": "java-программист", "mail":"jury.anisimov@mail.ru"}},
-  {"id":3,  "data": {"position": "менеджер", "mail":"pavel.nikonov@yandex.ru"}},
-  {"id":4,  "data": {"position": "front-end разработчик", "mail":"bogdan.shashkov@gmail.com"}},
-  {"id":5,  "data": {"position": "android-разработчик", "mail":"igory.osipov@bk.ru"}}
+{
+  "users": [
+  {
+    "id": 1,
+    "data": {
+      "mail": "sergey.sharapov@gmail.com",
+      "workplace": {
+        "id": 0,
+        "company": "Reksoft",
+        "position": {
+          "id": 0,
+          "value": "Java-developer"
+        }
+      }
+    }
+  },
+  {
+    "id": 2,
+    "data": {
+      "mail": "jury.anisimov@mail.ru",
+      "workplace": {
+        "id": 1,
+        "company": "DataArt"
+      },
+      "position": {
+        "id": 1,
+        "value": "Frontend-developer"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "data": {
+      "mail": "pavel.nikonov@yandex.ru",
+      "workplace": {
+        "id": 2,
+        "company": "Neoflex"
+      },
+      "position": {
+        "id": 2,
+        "value": "QA engineer"
+      }
+    }
+  },
+  {
+    "id": 4,
+    "data": {
+      "mail": "bogdan.shashkov@gmail.com",
+      "workplace": {
+        "id": 0,
+        "company": "Reksoft"
+      },
+      "position": {
+        "id": 2,
+        "value": "QA engineer"
+      }
+    }
+  },
+  {
+    "id": 5,
+    "data": {
+      "mail": "igory.osipov@bk.ru",
+      "workplace": {
+        "id": 1,
+        "company": "DataArt"
+      },
+      "position": {
+        "id": 1,
+        "value": "Frontend-developer"
+      }
+    }
+  }
 ]
+}

@@ -6,8 +6,9 @@ import ErrorMessage from './ErrorMessage';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as userActions from '../actions/LoadDataAction';
-
-
+import userService from '../service/DataLoadService';
+import usersDetailsSchema from '../schema/UserDetailSchema';
+import { normalize } from 'normalizr';
 
 import PropTypes from 'prop-types';
 
@@ -17,6 +18,13 @@ class UserList extends Component {
   };
 
   componentDidMount() {
+    userService.getTotalDescription()
+      .then(data => {
+        //normalize(data, usersDetailsSchema);
+        console.log(normalize(data, usersDetailsSchema));
+      })
+      .catch(error => {console.log(error)});
+    //загружаем информацию о пользователях
     this.props.userActions.loadUsersData();
   }
 
