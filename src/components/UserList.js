@@ -7,7 +7,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as userActions from '../actions/LoadDataAction';
 import userService from '../service/DataLoadService';
-import { normalize, schema, Schema, arrayOf } from 'normalizr';
+import groupSchema from '../schema/GroupsSchema';
+import { normalize, schema } from 'normalizr';
+
 
 import PropTypes from 'prop-types';
 
@@ -17,12 +19,19 @@ class UserList extends Component {
   };
 
   componentDidMount() {
-    //совершенная путанница в этом фреймворке
+
+    /*userService.getGroupData()
+      .then(response => response.json())
+      .then(json => {
+        console.log(normalize(json, groupSchema));
+      })
+      .catch(error => console.log(error));*/
+
     this.props.userActions.loadUsersData();
   }
 
   componentWillReceiveProps(props) {
-    console.log('props', props.clickedUserInfo);
+
   }
 
   onClick(userId) {

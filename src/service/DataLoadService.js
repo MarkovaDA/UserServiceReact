@@ -1,6 +1,7 @@
+
 class DataLoadService {
   getUserDataRequest() {
-     return fetch('/server/users.json');
+     return fetch('/server/groups.json');
   }
 
   getUserDataById(id) {
@@ -15,6 +16,10 @@ class DataLoadService {
         .catch(error => reject(error))
     });
   }
-};
+  getGroupData() {
+    return fetch('/server/groups.json');
+  }
+}
+
 let service = new DataLoadService();
 export default service;

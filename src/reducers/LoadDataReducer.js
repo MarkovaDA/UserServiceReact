@@ -6,7 +6,6 @@ export const loadDataSubscribe = (state, action) => {
         isFetching: true
       };
     case 'USERS_DATA_REQUEST_SUCCESS':
-      console.log('USERS_DATA_REQUEST_SUCCESS');
       return Object.assign({}, state, {
         isFetching: false,
         items: action.results

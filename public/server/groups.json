@@ -1,0 +1,201 @@
+{
+  "groups": [
+    {
+      "id": 1,
+      "title": "Beginners",
+      "users": [
+        {
+          "id": 1,
+          "firstname": "Сергей",
+          "lastname": "Шарапов",
+          "workplace": {
+            "id": 0,
+            "company": "Reksoft"
+          }
+        },
+        {
+          "id": 2,
+          "firstname": "Юрий",
+          "lastname": "Анисимов",
+          "workplace": {
+            "id": 1,
+            "company": "DataArt"
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Pre-intermediate",
+      "users": [
+        {
+          "id": 3,
+          "firstname": "Павел",
+          "lastname": "Никонов",
+          "workplace": {
+            "id": 2,
+            "company": "Cinemax"
+          }
+        },
+        {
+          "id": 4,
+          "firstname": "Богдан",
+          "lastname": "Шашков",
+          "workplace": {
+            "id": 0,
+            "company": "Reksoft"
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Intermediate",
+      "users": [
+        {
+          "id": 4,
+          "firstname": "Богдан",
+          "lastname": "Шашков",
+          "workplace": {
+            "id": 0,
+            "company": "Reksoft"
+          }
+        },
+        {
+          "id": 5,
+          "firstname": "Игорь",
+          "lastname": "Осипов",
+          "workplace": {
+            "id": 1,
+            "company": "DataArt"
+          }
+        },
+        {
+          "id": 6,
+          "firstname": "Мария",
+          "lastname": "Батищева",
+          "workplace": {
+            "id": 2,
+            "company": "Cinemax"
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Upper-intermediate",
+      "users": [
+        {
+          "id": 6,
+          "firstname": "Мария",
+          "lastname": "Батищева",
+          "workplace": {
+            "id": 2,
+            "company": "Cinemax"
+          }
+        },
+        {
+          "id": 7,
+          "firstname": "Геннадий",
+          "lastname": "Вислоухов",
+          "workplace": {
+            "id": 0,
+            "company": "Reksoft"
+          }
+        },
+        {
+          "id": 8,
+          "firstname": "Полина",
+          "lastname": "Панарина",
+
+          "workplace": {
+            "id": 0,
+            "company": "Reksoft"
+          }
+        },
+        {
+          "id": 1,
+          "firstname": "Сергей",
+          "lastname": "Шарапов",
+
+          "workplace": {
+            "id": 0,
+            "company": "Reksoft"
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Advanced",
+      "users": [
+        {
+          "id": 8,
+          "firstname": "Полина",
+          "lastname": "Панарина",
+
+          "workplace": {
+            "id": 0,
+            "company": "Reksoft"
+          }
+        },
+        {
+          "id": 9,
+          "firstname": "Катя",
+          "lastname": "Беляева",
+
+          "workplace": {
+            "id": 1,
+            "company": "DataArt"
+          }
+        },
+        {
+          "id": 10,
+          "firstname": "Дарья",
+          "lastname": "Гончарова",
+
+          "workplace": {
+            "id": 1,
+            "company": "DataArt"
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Proficiency",
+      "users": [
+        {
+          "id": 9,
+          "firstname": "Катя",
+          "lastname": "Беляева",
+
+          "workplace": {
+            "id": 1,
+            "company": "DataArt"
+          }
+        },
+        {
+          "id": 10,
+          "firstname": "Дарья",
+          "lastname": "Гончарова",
+
+          "workplace": {
+            "id": 1,
+            "company": "DataArt"
+          }
+        },
+        {
+          "id": 2,
+          "firstname": "Юрий",
+          "lastname": "Анисимов",
+          "workplace": {
+            "id": 1,
+            "company": "DataArt"
+          }
+        }
+      ]
+    }
+  ]
+}
+
