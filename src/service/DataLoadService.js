@@ -1,6 +1,7 @@
 import groupSchema from '../schema/GroupsSchema';
 import usersDetailSchema from '../schema/UsersDetailSchema';
 import { normalize, denormalize } from 'normalizr';
+import { isEmpty } from 'lodash';
 
 class DataLoadService {
   getUserDataRequest() {
@@ -22,7 +23,7 @@ class DataLoadService {
       fetch('/server/description.json')
         .then(response => response.json())
         .then(json => {
-          const clickedUser = json.users.find((item) => {return item.id === id});
+          const clickedUser = json.users.find(item => item.id === id);
           //const normalizedUser = denormalize({users: [id]}, usersDetailSchema, json); with normalizer
           resolve(clickedUser);
         })
@@ -30,17 +31,24 @@ class DataLoadService {
     });
   }
 
-  getUserDetailsSchema() {
+  getUserIdsInGroup(groupId) {
+    //получаем список айдишников пользователей, входящих в группу groupId
     return new Promise((resolve, reject) => {
-      fetch('/server/description.json')
+      fetch('/server/groups.json')
         .then(response => response.json())
         .then(json => {
-          const details = normalize(json, usersDetailSchema);
-          resolve(details);
+          const groups = normalize(json, groupSchema).entities.groups;
+          const searchedGroup = Object.values(groups).find(item => item.id === groupId);
+          let ids = [];
+          if (groupId !== 0) {
+            ids = Object.values(searchedGroup.users);
+          }
+          resolve(ids);
         })
         .catch(error => reject(error))
     });
   }
+
 }
 
 let service = new DataLoadService();

@@ -21,10 +21,6 @@ class UserList extends Component {
     this.props.userActions.loadUsersData();
   }
 
-  componentWillReceiveProps(props) {
-
-  }
-
   onClick(userId) {
     this.extractUserDataById(userId);
   }
