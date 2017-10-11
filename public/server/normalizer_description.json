@@ -1,0 +1,106 @@
+{
+  "users": {
+    "1": {
+      "id": 1,
+      "mail": "test@mail",
+      "workplace": {
+        "id": 0,
+        "position": 0,
+        "experience": "2 года"
+      }
+    },
+    "2": {
+      "id": 2,
+      "mail": "test@mail",
+      "workplace": {
+        "id": 1,
+        "position": 1,
+        "experience": "8 лет"
+      }
+    },
+    "3": {
+      "id": 3,
+      "mail": "test@mail",
+      "workplace": {
+        "id": 0,
+        "position": 2,
+        "experience": "5 лет"
+      }
+    },
+    "4": {
+      "id": 4,
+      "mail": "test@mail",
+      "workplace": {
+        "id": 0,
+        "position": 0,
+        "experience": "2 года"
+      }
+    },
+    "5": {
+      "5": {
+        "id": 2,
+        "mail": "test@mail",
+        "workplace": {
+          "id": 2,
+          "position": 2,
+          "experience": "6 лет"
+        }
+      }
+    },
+    "6": {
+      "id": 6,
+      "mail": "test@mail",
+      "workplace": {
+        "id": 2,
+        "position": 0,
+        "experience": "5 лет"
+      }
+    },
+    "7": {
+      "id": 7,
+      "mail": "test@mail",
+      "workplace": {
+        "id": 2,
+        "position": 1,
+        "experience": "3 года"
+      }
+    },
+    "8": {
+      "id": 8,
+      "mail": "test@mail",
+      "workplace": {
+        "id": 0,
+        "position": 2,
+        "experience": "5 лет"
+      }
+    },
+    "9": {
+      "id": 9,
+      "mail": "test@mail",
+      "workplace": {
+        "id": 2,
+        "position": 0,
+        "experience": "2 года"
+      }
+    },
+    "10": {
+      "id": 10,
+      "mail": "test@mail",
+      "workplace": {
+        "id": 0,
+        "position": 0,
+        "experience": "10 лет"
+      }
+    }
+  },
+  "workplace": {
+    "0": {"id": 0, "company": "Reksoft"},
+    "1": {"id": 1,  "company": "DataArt"},
+    "2": {"id": 2, "company": "Neoflex"}
+  },
+  "position": {
+    "0": {"id": 0, "working_status": "Front-end developer"},
+    "1": {"id": 1, "working_status": "Java-developer"},
+    "2": {"id": 2, "working_status": "QA engineer"}
+  }
+}

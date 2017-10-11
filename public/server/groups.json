@@ -7,20 +7,12 @@
         {
           "id": 1,
           "firstname": "Сергей",
-          "lastname": "Шарапов",
-          "workplace": {
-            "id": 0,
-            "company": "Reksoft"
-          }
+          "lastname": "Шарапов"
         },
         {
           "id": 2,
           "firstname": "Юрий",
-          "lastname": "Анисимов",
-          "workplace": {
-            "id": 1,
-            "company": "DataArt"
-          }
+          "lastname": "Анисимов"
         }
       ]
     },
@@ -31,20 +23,12 @@
         {
           "id": 3,
           "firstname": "Павел",
-          "lastname": "Никонов",
-          "workplace": {
-            "id": 2,
-            "company": "Cinemax"
-          }
+          "lastname": "Никонов"
         },
         {
           "id": 4,
           "firstname": "Богдан",
-          "lastname": "Шашков",
-          "workplace": {
-            "id": 0,
-            "company": "Reksoft"
-          }
+          "lastname": "Шашков"
         }
       ]
     },
@@ -55,29 +39,17 @@
         {
           "id": 4,
           "firstname": "Богдан",
-          "lastname": "Шашков",
-          "workplace": {
-            "id": 0,
-            "company": "Reksoft"
-          }
+          "lastname": "Шашков"
         },
         {
           "id": 5,
           "firstname": "Игорь",
-          "lastname": "Осипов",
-          "workplace": {
-            "id": 1,
-            "company": "DataArt"
-          }
+          "lastname": "Осипов"
         },
         {
           "id": 6,
           "firstname": "Мария",
-          "lastname": "Батищева",
-          "workplace": {
-            "id": 2,
-            "company": "Cinemax"
-          }
+          "lastname": "Батищева"
         }
       ]
     },
@@ -88,40 +60,22 @@
         {
           "id": 6,
           "firstname": "Мария",
-          "lastname": "Батищева",
-          "workplace": {
-            "id": 2,
-            "company": "Cinemax"
-          }
+          "lastname": "Батищева"
         },
         {
           "id": 7,
           "firstname": "Геннадий",
-          "lastname": "Вислоухов",
-          "workplace": {
-            "id": 0,
-            "company": "Reksoft"
-          }
+          "lastname": "Вислоухов"
         },
         {
           "id": 8,
           "firstname": "Полина",
-          "lastname": "Панарина",
-
-          "workplace": {
-            "id": 0,
-            "company": "Reksoft"
-          }
+          "lastname": "Панарина"
         },
         {
           "id": 1,
           "firstname": "Сергей",
-          "lastname": "Шарапов",
-
-          "workplace": {
-            "id": 0,
-            "company": "Reksoft"
-          }
+          "lastname": "Шарапов"
         }
       ]
     },
@@ -132,32 +86,17 @@
         {
           "id": 8,
           "firstname": "Полина",
-          "lastname": "Панарина",
-
-          "workplace": {
-            "id": 0,
-            "company": "Reksoft"
-          }
+          "lastname": "Панарина"
         },
         {
           "id": 9,
           "firstname": "Катя",
-          "lastname": "Беляева",
-
-          "workplace": {
-            "id": 1,
-            "company": "DataArt"
-          }
+          "lastname": "Беляева"
         },
         {
           "id": 10,
           "firstname": "Дарья",
-          "lastname": "Гончарова",
-
-          "workplace": {
-            "id": 1,
-            "company": "DataArt"
-          }
+          "lastname": "Гончарова"
         }
       ]
     },
@@ -168,31 +107,17 @@
         {
           "id": 9,
           "firstname": "Катя",
-          "lastname": "Беляева",
-
-          "workplace": {
-            "id": 1,
-            "company": "DataArt"
-          }
+          "lastname": "Беляева"
         },
         {
           "id": 10,
           "firstname": "Дарья",
-          "lastname": "Гончарова",
-
-          "workplace": {
-            "id": 1,
-            "company": "DataArt"
-          }
+          "lastname": "Гончарова"
         },
         {
           "id": 2,
           "firstname": "Юрий",
-          "lastname": "Анисимов",
-          "workplace": {
-            "id": 1,
-            "company": "DataArt"
-          }
+          "lastname": "Анисимов"
         }
       ]
     }

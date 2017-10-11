@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
+import '../templates/CustomTemplate';
+import { customListTemplate } from "../templates/CustomTemplate";
 
-class DataDisplayPattern extends React.Component {
+
+class DataDisplayPattern extends Component {
 
   render() {
     const data = {...this.props.displayData};
+    const renderedList = customListTemplate.generateListByObject(data);
+
     return (
-      <div>
-        {
-          data && Object.keys(data).map(key =>
-            <div key={key} className="row-info-user">
-              <div className="row-key">
-                <b>
-                  {key}:
-                </b>
-              </div>
-              <div className="row-value">
-                {data[key]}
-              </div>
-            </div>
-          )
-        }
-      </div>
+      <ul className="info-list" dangerouslySetInnerHTML={{__html: renderedList}}>
+      </ul>
     )
   }
 }

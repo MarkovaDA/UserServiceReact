@@ -2,73 +2,134 @@
   "users": [
   {
     "id": 1,
-    "data": {
       "mail": "sergey.sharapov@gmail.com",
       "workplace": {
         "id": 0,
         "company": "Reksoft",
         "position": {
           "id": 0,
-          "value": "Java-developer"
+          "value": "Java-developer",
+          "experience": "2 years"
         }
       }
-    }
   },
   {
     "id": 2,
-    "data": {
-      "mail": "jury.anisimov@mail.ru",
-      "workplace": {
-        "id": 1,
-        "company": "DataArt"
-      },
+    "mail": "jury.anisimov@mail.ru",
+    "workplace": {
+      "id": 1,
+      "company": "DataArt",
       "position": {
         "id": 1,
-        "value": "Frontend-developer"
+        "value": "Frontend-developer",
+        "experience": "5 years"
       }
     }
   },
   {
     "id": 3,
-    "data": {
-      "mail": "pavel.nikonov@yandex.ru",
-      "workplace": {
-        "id": 2,
-        "company": "Neoflex"
-      },
+    "mail": "pavel.nikonov@yandex.ru",
+    "workplace": {
+      "id": 2,
+      "company": "Neoflex",
       "position": {
         "id": 2,
-        "value": "QA engineer"
+        "value": "QA engineer",
+        "experience": "3 years"
       }
     }
   },
   {
     "id": 4,
-    "data": {
-      "mail": "bogdan.shashkov@gmail.com",
-      "workplace": {
-        "id": 0,
-        "company": "Reksoft"
-      },
+    "mail": "bogdan.shashkov@gmail.com",
+    "workplace": {
+      "id": 0,
+      "company": "Reksoft",
       "position": {
         "id": 2,
-        "value": "QA engineer"
+        "value": "QA engineer",
+        "experience": "7 years"
       }
     }
   },
   {
     "id": 5,
-    "data": {
-      "mail": "igory.osipov@bk.ru",
-      "workplace": {
-        "id": 1,
-        "company": "DataArt"
-      },
+    "mail": "igory.osipov@bk.ru",
+    "workplace": {
+      "id": 1,
+      "company": "DataArt",
       "position": {
         "id": 1,
-        "value": "Frontend-developer"
+        "value": "Frontend-developer",
+        "experience": "5 years"
       }
     }
-  }
-]
+  },
+  {
+      "id": 6,
+      "mail": "maria.batisheva@bk.ru",
+      "workplace": {
+        "id": 1,
+        "company": "DataArt",
+        "position": {
+          "id": 1,
+          "value": "Frontend-developer",
+          "experience": "2 years"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "mail": "gena.visloychov@yandex.ru",
+      "workplace": {
+        "id": 0,
+        "company": "Reksoft",
+        "position": {
+          "id": 2,
+          "value": "QA engineer",
+          "experience": "3 years"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "mail": "polina.panarina@gmail.com",
+      "workplace": {
+        "id": 0,
+        "company": "Reksoft",
+        "position": {
+          "id": 0,
+          "value": "Java-developer",
+          "experience": "4 years"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "mail": "katya.belaeva@gmail.com",
+      "workplace": {
+        "id": 1,
+        "company": "DataArt",
+        "position": {
+          "id": 0,
+          "value": "Java-developer",
+          "experience": "2 years"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "mail": "darya.goncharova@yandex.ru",
+      "workplace": {
+        "id": 1,
+        "company": "DataArt",
+        "position": {
+          "id": 2,
+          "value": "QA engineer",
+          "experience": "2 years"
+        }
+      }
+    }
+
+  ]
 }

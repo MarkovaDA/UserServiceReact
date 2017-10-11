@@ -21,7 +21,6 @@ export const loadUserDataIsNeed = (id) => {
     const foundUser = getState().selectedUser.userDetails.find(user => user.id === id);
 
     if (foundUser) {
-      console.log('there is cashed data');
       dispatch(extractCachedUserInfo(foundUser));
       return;
     }
@@ -41,7 +40,7 @@ export const loadUserDataIsNeed = (id) => {
 const extractCachedUserInfo = (info) => {
   return {
     type: 'USER_HAS_FOUND_IN_CACHE',
-    clickedUserInfo: info
+    userInfo: info
   }
 };
 
@@ -72,3 +71,4 @@ const receiveDataFailure = (error) => {
     error: error
   };
 };
+

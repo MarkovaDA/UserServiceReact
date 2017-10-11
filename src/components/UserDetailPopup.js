@@ -2,7 +2,6 @@ import React from 'react';
 import { Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import DataDisplayPattern from './DataDisplayPattern';
-
 class UserDetailPopup extends React.Component {
 
   state = {
@@ -22,7 +21,8 @@ class UserDetailPopup extends React.Component {
   };
 
   render() {
-    const { data } = {...this.props.userDetail}
+    const data = {...this.props.userDetail};
+
     return (
       <Modal closeIcon={true} open={this.state.isOpen} onClose={this.onClose} closeOnDocumentClick={true}>
         <Modal.Header>Информация о пользователе</Modal.Header>
