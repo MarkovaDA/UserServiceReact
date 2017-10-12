@@ -1,6 +1,5 @@
 import userService from '../service/DataLoadService';
 
-
 export const loadUsersData = () => {
   return (dispatch) => {
     return {

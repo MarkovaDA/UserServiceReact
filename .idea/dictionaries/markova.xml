@@ -2,6 +2,8 @@
   <dictionary name="markova">
     <words>
       <w>denormalized</w>
+      <w>firstname</w>
+      <w>lastname</w>
     </words>
   </dictionary>
 </component>

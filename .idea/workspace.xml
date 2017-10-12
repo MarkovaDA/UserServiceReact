@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0f7964c-b803-4060-bba0-a766bffecf4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/actions/FilterByGroupAction.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/GroupsFilter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/UserList.js" afterPath="$PROJECT_DIR$/src/components/UserList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/LoadDataReducer.js" afterPath="$PROJECT_DIR$/src/reducers/LoadDataReducer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/DataLoadService.js" afterPath="$PROJECT_DIR$/src/service/DataLoadService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/markova.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/markova.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/LoadDataAction.js" afterPath="$PROJECT_DIR$/src/actions/LoadDataAction.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/CustomTemplate.js" afterPath="$PROJECT_DIR$/src/templates/CustomTemplate.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,8 +35,8 @@
             <file leaf-file-name="UserList.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/components/UserList.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-159">
-                    <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                  <state relative-caret-position="621">
+                    <caret line="61" column="42" lean-forward="false" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
                     <folding>
                       <element signature="e#0#41#0" expanded="true" />
                     </folding>
@@ -51,14 +47,14 @@
             <file leaf-file-name="LoadDataAction.js" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/actions/LoadDataAction.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="40">
-                    <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+                  <state relative-caret-position="20">
+                    <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
                     <folding>
-                      <marker date="1507627536916" expanded="true" signature="91:391" ph="..." />
-                      <marker date="1507627536916" expanded="true" signature="116:387" ph="..." />
-                      <marker date="1507627536916" expanded="true" signature="438:918" ph="..." />
-                      <marker date="1507627536916" expanded="true" signature="472:914" ph="..." />
-                      <marker date="1507627536916" expanded="true" signature="666:834" ph="..." />
+                      <marker date="1507792414558" expanded="true" signature="90:390" ph="..." />
+                      <marker date="1507792414558" expanded="true" signature="115:386" ph="..." />
+                      <marker date="1507792414558" expanded="true" signature="437:917" ph="..." />
+                      <marker date="1507792414558" expanded="true" signature="471:913" ph="..." />
+                      <marker date="1507792414558" expanded="true" signature="665:833" ph="..." />
                     </folding>
                   </state>
                 </provider>
@@ -81,6 +77,18 @@
               <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomTemplate.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/templates/CustomTemplate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="471">
+              <caret line="88" column="36" lean-forward="true" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+              <folding>
+                <element signature="e#897#1327#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -141,11 +149,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilterByGroupAction.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FilterByGroupAction.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/actions/FilterByGroupAction.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="54" lean-forward="false" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+            <state relative-caret-position="568">
+              <caret line="29" column="4" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -212,7 +220,6 @@
         <option value="$PROJECT_DIR$/public/server/groups.json" />
         <option value="$PROJECT_DIR$/src/schema/UserDetailSchema.js" />
         <option value="$PROJECT_DIR$/src/schema/CustomDenormalizer.js" />
-        <option value="$PROJECT_DIR$/src/actions/LoadDataAction.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/reducers/LoadUserInfoReducer.js" />
         <option value="$PROJECT_DIR$/src/components/UserDetailPopup.js" />
@@ -221,7 +228,6 @@
         <option value="$PROJECT_DIR$/src/datatable/CustomTemplate.js" />
         <option value="$PROJECT_DIR$/public/server/normalizer_description.json" />
         <option value="$PROJECT_DIR$/src/components/DataDisplayPattern.js" />
-        <option value="$PROJECT_DIR$/src/templates/CustomTemplate.js" />
         <option value="$PROJECT_DIR$/src/style.css" />
         <option value="$PROJECT_DIR$/src/schema/UsersDetailSchema.js" />
         <option value="$PROJECT_DIR$/public/server/description.json" />
@@ -231,6 +237,8 @@
         <option value="$PROJECT_DIR$/src/reducers/LoadDataReducer.js" />
         <option value="$PROJECT_DIR$/src/service/DataLoadService.js" />
         <option value="$PROJECT_DIR$/src/actions/FilterByGroupAction.js" />
+        <option value="$PROJECT_DIR$/src/actions/LoadDataAction.js" />
+        <option value="$PROJECT_DIR$/src/templates/CustomTemplate.js" />
       </list>
     </option>
   </component>
@@ -309,12 +317,6 @@
               <item name="user-service" type="b2602c69:ProjectViewProjectNode" />
               <item name="user-service" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="user-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="user-service" type="b2602c69:ProjectViewProjectNode" />
@@ -434,12 +436,12 @@
       <workItem from="1507285569726" duration="16222000" />
       <workItem from="1507533716997" duration="25378000" />
       <workItem from="1507622391438" duration="27533000" />
-      <workItem from="1507699825248" duration="22841000" />
+      <workItem from="1507699825248" duration="36824000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198550000" />
+    <option name="totallyTimeSpent" value="212533000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -447,12 +449,12 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1654373" sideWeight="0.8517786" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3347826" sideWeight="0.48208642" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13152175" sideWeight="0.5147524" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13540569" sideWeight="0.14822134" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3347826" sideWeight="0.5179136" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13152175" sideWeight="0.48524764" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -806,28 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/LoadDataAction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <marker date="1507627536916" expanded="true" signature="91:391" ph="..." />
-            <marker date="1507627536916" expanded="true" signature="116:387" ph="..." />
-            <marker date="1507627536916" expanded="true" signature="438:918" ph="..." />
-            <marker date="1507627536916" expanded="true" signature="472:914" ph="..." />
-            <marker date="1507627536916" expanded="true" signature="666:834" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/CustomTemplate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GroupsFilter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -835,16 +815,6 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="e#431#884#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/UserList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-159">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -875,11 +845,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/LoadDataAction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <marker date="1507792414558" expanded="true" signature="90:390" ph="..." />
+            <marker date="1507792414558" expanded="true" signature="115:386" ph="..." />
+            <marker date="1507792414558" expanded="true" signature="437:917" ph="..." />
+            <marker date="1507792414558" expanded="true" signature="471:913" ph="..." />
+            <marker date="1507792414558" expanded="true" signature="665:833" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/FilterByGroupAction.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="54" lean-forward="false" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+        <state relative-caret-position="568">
+          <caret line="29" column="4" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/UserList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="61" column="42" lean-forward="false" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/CustomTemplate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="88" column="36" lean-forward="true" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+          <folding>
+            <element signature="e#897#1327#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
