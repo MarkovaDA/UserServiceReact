@@ -7,8 +7,9 @@ export const loadUserInfoSubscribe = (state = {isFetching: false, userDetails: [
       };
     case 'USER_DETAIL_REQUEST_SUCCESS':
       console.log('USER_DETAIL_REQUEST_SUCCESS');
+
       const userInfo = action.userInfo;
-      console.log('userInfo', userInfo);
+
       return {...state,
         isFetching:false,
         userDetails:[...state.userDetails, userInfo],//список кешированных пользователей
@@ -16,13 +17,14 @@ export const loadUserInfoSubscribe = (state = {isFetching: false, userDetails: [
       };
     case 'USER_DETAIL_REQUEST_FAILURE':
       console.log('USER_DETAIL_REQUEST_FAILURE');
+
       return {...state,
         isFetching:false,
         error: action.error
       };
     case 'USER_HAS_FOUND_IN_CACHE':
       console.log('USER_HAS_FOUND_IN_CACHE');
-      console.log('userInfo', action.userInfo);
+
       return {...state,
         clickedUserInfo: action.userInfo
       };

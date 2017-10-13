@@ -40,9 +40,11 @@ class DataLoadService {
           const groups = normalize(json, groupSchema).entities.groups;
           const searchedGroup = Object.values(groups).find(item => item.id === groupId);
           let ids = [];
+
           if (groupId !== 0) {
             ids = Object.values(searchedGroup.users);
           }
+
           resolve(ids);
         })
         .catch(error => reject(error))

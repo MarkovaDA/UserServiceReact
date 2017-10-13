@@ -1,21 +1,12 @@
-import {  forEach, isString, isObject, isArray, split, map, reverse } from 'lodash';
+import {  forEach, isString, isObject, isArray, at,  isUndefined, split, isFunction, isEmpty, toUpper, words } from 'lodash';
 
 
 class CustomTemplate {
   constructor() {
-    //схема генерации разметки по данным
-    const schema = {
-      'div': {
-        'div.section': {
-          'h2': [ {'b':'firstname'}, {'b':'lastname'}],
-          'div.center': {
-            'h3': 'user.education.university_name',
-            'h4': 'user.education.faculty',
-            'h5': 'user.education.graduate_year'
-          }
-        }
-      },
+    const toUpperCase = (String) => {
+      return toUpper(String);
     };
+
     //источник данных
     const source = {
       user: {
@@ -28,8 +19,29 @@ class CustomTemplate {
         }
       }
     };
-    console.log(this.buildHtmlBySchema(source,schema));
-    //console.log(this.expandCloseTags('div.span.b'));
+
+
+    //можно передавать только простенькие функции, которые возвращают примитив
+    //схема генерации разметки по данным
+    const schema = {
+      'div': {
+        'a': () => { return toUpperCase(source.user.firstname) },
+        'div.section': {
+          'h2': [ {'b':'user.firstname'}, {'b':'user.lastname'} ],
+          'div.center': {
+            'p': {
+              'span': {
+                  'a': 'user.education.university_name'
+               }},
+            'h4':  'user.education.faculty',
+            'h5':  'user.education.graduate_year'
+          }
+        }
+      },
+    };
+    //console.log(this.buildHtmlBySchema(source,schema));
+    console.log(this.expandAttributes('div.alerts'));
+
   }
   generateListByObject = (source) => {
     let list = ``;
@@ -48,18 +60,18 @@ class CustomTemplate {
     return list;
   };
 
-  /*ПРАВИЛА ГЕНЕРАЦИИ СХЕМЫ
-  * допускается детальное уточнение членов объекта
-  * если член объекта не уточнеен,то его значение формируется из родительского
-  */
   buildHtmlBySchema = (source,schema) => {
     let html = ``;
+
     forEach(schema, (value, key) => {
       const openTag = this.expandOpenTags(key);
       const closeTag = this.expandCloseTags(key);
+
       //plain object
-      if (!isObject(value)) {
-        html = html.concat(`${openTag}${value}`);
+      if (!isObject(value) && !isFunction(value)) {
+        let tagContent = `${at(source,value)}`;
+        tagContent = (isEmpty(tagContent)) ? value : tagContent;
+        html = html.concat(`${openTag}${tagContent}`);
       }
       //some elements by common tag
       if (isArray(value)) {
@@ -69,9 +81,14 @@ class CustomTemplate {
       }
       //nested object
       else if (isObject(value)) {
-        //проверку можно перенести сюда
-        html = html.concat(`${openTag}${this.buildHtmlBySchema(source,value)}${closeTag}`);
+        //value is a function
+        if (isFunction(value)) {
+          html = html.concat(`${openTag}${value.call(this)}${closeTag}`);
+        }
+        else
+          html = html.concat(`${openTag}${this.buildHtmlBySchema(source,value)}${closeTag}`);
       }
+      //close parent tag
       if (!isObject(value) && !isArray(value)) {
         html = html.concat(closeTag);
       }
@@ -79,18 +96,45 @@ class CustomTemplate {
     return html;
   };
 
-  expandOpenTags = (shortForm) => {
-    const htmlTags = split(shortForm, '.');
-    return htmlTags.map((elem) => {
-      return `<${elem}>`
-    }).join('');
+  expandOpenTags = (tag) => {
+    //крайне уродская функция для выделения тега и имени класса
+    const params =  split(tag, '.');
+    const tagName = params[0];
+    const className = params[1];
+
+    if (!isUndefined(className)) {
+      return `<${tagName} class="${className}">`;
+    }
+
+    return `<${tag}>`;
   };
 
-  expandCloseTags = (shortForm) => {
-    const htmlTags = split(shortForm, '.');
-    return reverse(htmlTags).map((elem) => {
-      return `</${elem}>`
-    }).join('');
+  expandCloseTags = (tag) => {
+    //не менее уродская
+    const params =  split(tag, '.');
+    const tagName = params[0];
+    const className = params[1];
+
+    if (!isUndefined(className)) {
+      return `</${tagName}>`;
+    }
+
+    return `</${tag}>`;
+  };
+
+  //разворачиваем теги и его атрибуты
+  expandAttributes = (shortTag) => {
+    const patternRules = {'.': 'class=', '#': 'id='};
+    //тег без атрибутов
+    if (!(/(#.+)|(\.+)/).test(shortTag)) {
+      return `<${shortTag}>`;
+    }
+    const index = shortTag.match(/(#.+)|(\.+)/).index;
+    const splitter = shortTag[index];
+    const attribute = patternRules[splitter];
+    const terms = words(shortTag, /[^#,. ]+/g);
+    //пройтись в цикле и замапить все возможные теги
+    return `<${terms[0]}  ${attribute}"${terms[1]}">`;
   };
 
 }

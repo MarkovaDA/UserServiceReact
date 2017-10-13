@@ -7,8 +7,8 @@ import * as filterActions from '../actions/FilterByGroupAction';
 class GroupFilter extends Component {
 
   onSelectItem(groupId) {
-    //console.log(groupId);
-    this.props.filterActions.filterUsersByGroup(groupId);
+    console.log('select item');
+    //this.props.filterActions.filterUsersByGroup(groupId);
   }
 
   render() {
@@ -56,9 +56,7 @@ class GroupFilter extends Component {
 }
 
 export default connect(
-  state => ({
-
-  }),
+  state => ({}),
   dispatch => ({
     filterActions: bindActionCreators(filterActions, dispatch)
   })

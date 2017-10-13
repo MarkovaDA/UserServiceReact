@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import User from './User';
 import UserDetailPopup from './UserDetailPopup';
+import GroupFilter from './GroupFilter';
 import LoadMessage from './LoadMessage';
 import ErrorMessage from './ErrorMessage';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as userActions from '../actions/LoadDataAction';
-
+import { isEmpty } from 'lodash';
 
 
 import PropTypes from 'prop-types';
 
 class UserList extends Component {
   state = {
-    displayData: null
+    clickedUser: null
   };
 
   componentDidMount() {
@@ -34,19 +35,27 @@ class UserList extends Component {
     const items = this.props.items;//список пользователей
     const error = !!this.props.error;//произошла ли ошибка загрузки
     return (
-      <div>
-        <LoadMessage isLoading={!this.props.items && !error} />
-        <ErrorMessage isError={error}/>
-        <div className="user-container">
-          {
-            items && items.map((item, index) => <User onClick={() => this.onClick(item.id)} user={item} key={index} />)
-          }
+      <div className="ui center container">
+        <div className="ui secondary pointing menu">
+          <a className="ui active yellow item">
+            <GroupFilter />
+          </a>
         </div>
-        <UserDetailPopup userInfo={this.props.clickedUserInfo} userDetail={this.props.clickedUserInfo} />
+        <div className="ui segment">
+          <div>
+            <LoadMessage isLoading={!this.props.items && !error} />
+            <ErrorMessage isError={error} />
+            <div className="user-container">
+              {
+                items && items.map((item, index) => <User onClick={() => this.onClick(item.id)} user={item} key={index} />)
+              }
+            </div>
+            <UserDetailPopup userDetail={this.props.clickedUserInfo} />
+          </div>
+        </div>
       </div>
     );
   }
-
 }
 
 UserList.propTypes = {
