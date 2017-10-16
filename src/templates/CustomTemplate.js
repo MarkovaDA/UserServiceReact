@@ -26,7 +26,7 @@ class CustomTemplate {
     const schema = {
       'div': {
         'a': () => { return toUpperCase(source.user.firstname) },
-        'div.section': {
+        'div.section#wrapper': {
           'h2': [ {'b':'user.firstname'}, {'b':'user.lastname'} ],
           'div.center': {
             'p': {
@@ -39,9 +39,14 @@ class CustomTemplate {
         }
       },
     };
-    //console.log(this.buildHtmlBySchema(source,schema));
-    console.log(this.expandAttributes('div.alerts'));
-
+    const schema2 = {
+      'div#block1.commonClass': {
+        'span': 'user.firstname'
+      },
+      'div#block2.commonClass': 'user.lastname'
+    };
+    console.log(this.buildHtmlBySchema(source,schema));
+    //console.log(this.expandTag('div.alerts#smthId~smthStyle'));
   }
   generateListByObject = (source) => {
     let list = ``;
@@ -62,11 +67,9 @@ class CustomTemplate {
 
   buildHtmlBySchema = (source,schema) => {
     let html = ``;
-
     forEach(schema, (value, key) => {
-      const openTag = this.expandOpenTags(key);
-      const closeTag = this.expandCloseTags(key);
-
+      const openTag = this.expandTag(key, true);
+      const closeTag = this.expandTag(key, false);
       //plain object
       if (!isObject(value) && !isFunction(value)) {
         let tagContent = `${at(source,value)}`;
@@ -96,45 +99,32 @@ class CustomTemplate {
     return html;
   };
 
-  expandOpenTags = (tag) => {
-    //крайне уродская функция для выделения тега и имени класса
-    const params =  split(tag, '.');
-    const tagName = params[0];
-    const className = params[1];
+  //разворачиваем представление тега вместе с его атрибутами
+  expandTag = (shortTag, isOpenTag = true) => {
+    const rules = {'.': 'class=', '#': 'id=', '~': 'style='};
+    const searchPattern = new RegExp(/[^#,.,~]+/g);
+    let values = words(shortTag, searchPattern);
+    const keys = split(shortTag, searchPattern);
 
-    if (!isUndefined(className)) {
-      return `<${tagName} class="${className}">`;
+    if (!isOpenTag) {
+      values =  values.slice(0,1);
     }
 
-    return `<${tag}>`;
-  };
-
-  expandCloseTags = (tag) => {
-    //не менее уродская
-    const params =  split(tag, '.');
-    const tagName = params[0];
-    const className = params[1];
-
-    if (!isUndefined(className)) {
-      return `</${tagName}>`;
+    let resString = `<`;
+    let key, value;
+    for(let i=0; i < values.length; i++) {
+      key = rules[keys[i]];
+      value = values[i];
+      if (!isEmpty(key)) {
+        resString += ` ${key}"${value}"`;
+      }
+      else if (!isEmpty(value)) {
+        resString += `${value}`;
+      }
     }
-
-    return `</${tag}>`;
-  };
-
-  //разворачиваем теги и его атрибуты
-  expandAttributes = (shortTag) => {
-    const patternRules = {'.': 'class=', '#': 'id='};
-    //тег без атрибутов
-    if (!(/(#.+)|(\.+)/).test(shortTag)) {
-      return `<${shortTag}>`;
-    }
-    const index = shortTag.match(/(#.+)|(\.+)/).index;
-    const splitter = shortTag[index];
-    const attribute = patternRules[splitter];
-    const terms = words(shortTag, /[^#,. ]+/g);
-    //пройтись в цикле и замапить все возможные теги
-    return `<${terms[0]}  ${attribute}"${terms[1]}">`;
+    let closeTag = (isOpenTag) ? '>': '/>';
+    resString += closeTag;
+    return resString;
   };
 
 }
