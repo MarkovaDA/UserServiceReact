@@ -41,12 +41,19 @@ class CustomTemplate {
     };
     const schema2 = {
       'div#block1.commonClass': {
-        'span': 'user.firstname'
+        'span':'user.firstname'
       },
-      'div#block2.commonClass': 'user.lastname'
+      'div#block2.commonClass': 'user.lastname',
+      'p#funcRes': () => {
+        return {
+        'span': {
+          'a.edu':'user.education.university_name',
+          'a.age': () => { return 25/2 }
+          }
+        }
+      }
     };
-    console.log(this.buildHtmlBySchema(source,schema));
-    //console.log(this.expandTag('div.alerts#smthId~smthStyle'));
+    console.log(this.buildHtmlBySchema(source,schema2));
   }
   generateListByObject = (source) => {
     let list = ``;
@@ -86,7 +93,15 @@ class CustomTemplate {
       else if (isObject(value)) {
         //value is a function
         if (isFunction(value)) {
-          html = html.concat(`${openTag}${value.call(this)}${closeTag}`);
+          let result = value.call(this);
+          //function value is plain
+          if (!isObject(result)) {
+            html = html.concat(`${openTag}${value.call(this)}${closeTag}`);
+          }
+          else {
+            //function value is nested object
+            html = html.concat(`${openTag}${this.buildHtmlBySchema(source, value.call(this))}${closeTag}`);
+          }
         }
         else
           html = html.concat(`${openTag}${this.buildHtmlBySchema(source,value)}${closeTag}`);
